@@ -29,15 +29,21 @@ export default function App() {
       ctx.lineWidth = 4;
       ctx.strokeStyle = '#00ff00';
 
-      const sliceWith = width * (1.0 / audioData.length)
+      const sliceWith = width * (1.0 / audioData.length / 2)
       let x = 0;
       const y = height
 
-      for (let i = 0; i < audioData.length / 2; i++) {
+      for (let i = 0; i < audioData.length; i++) {
         ctx.beginPath();
         ctx.moveTo(x * 2, y);
         const v = y - (audioData[i])
         ctx.lineTo(x * 2, v)
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(width - x * 2, y);
+        const rightY = y - audioData[i];
+        ctx.lineTo(width - x * 2, rightY);
         ctx.stroke();
 
         x += sliceWith
