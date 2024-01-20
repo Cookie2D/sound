@@ -22,7 +22,7 @@ export default function InputAudio({ setValue: setAudio }: InputAudioProps) {
     }
   }
 
-  // TODO: add styles
+  // TODO: add <styles></styles>
   return (
     <label className='flex flex-col text-center p-2'>
       Upload your sound
